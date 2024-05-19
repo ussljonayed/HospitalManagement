@@ -1,0 +1,89 @@
+﻿@using HospitalManagement.Models.EntityModels
+@model Appointment
+@using HospitalManagement.Models.ViewModels
+
+@{
+    PageHeader ph = new PageHeader() { Title = "Edit Appointment Details" };
+}
+<partial name="../Shared/Widgets/_PageHeader.cshtml" model="ph" />
+
+
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <partial name="../Shared/Widgets/_CardHeader.cshtml" />
+
+        <div class="card-body">
+
+            <form class="form-horizontal" asp-action="Edit" asp-controller="Appointment">
+
+                <div class="form-group row">
+                    <label for="PatientId" class="col-sm-2 col-form-label">Patient</label>
+                    <div class="col-sm-10">
+                        <select asp-for="PatientId" class="form-control">
+                            @foreach (var p in ViewBag.Patients)
+                            {
+                                <option value="@p.Id">@p.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <label for="DoctorId" class="col-sm-2 col-form-label">Doctor</label>
+                    <div class="col-sm-10">
+                        <select asp-for="DoctorId" class="form-control">
+                            @foreach (var p in ViewBag.Doctors)
+                            {
+                                <option value="@p.Id">@p.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                
+
+                
+
+                
+
+                <div class="form-group row">
+                    <label for="Fee" class="col-sm-2 col-form-label">Fee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Fee" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="Date" class="col-sm-2 col-form-label">Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" asp-for="Date" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Time" class="col-sm-2 col-form-label">Time</label>
+                    <div class="col-sm-10">
+                        <input type="time" class="form-control" asp-for="Time" />
+                    </div>
+                </div>
+
+
+               
+
+
+
+                <div class="card-footer">
+                    <input class="btn btn-info" type="submit" value="Submit" name="Submit" />
+                </div>
+            </form>
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>

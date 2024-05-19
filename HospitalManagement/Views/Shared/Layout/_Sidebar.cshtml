@@ -1,0 +1,79 @@
+﻿@using System.Security.Claims;
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="~/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Hospital Management </span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            @{
+                String Id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var Name = User.FindFirstValue(ClaimTypes.Name);
+                var Photo = User.FindFirstValue("Photo");
+                var FullName = User.FindFirstValue("FullName");
+                var ContactNo = User.FindFirstValue("ContactNo");
+            }
+
+            <div class="image">
+                @* <img src="~/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> *@
+                <img src="~/img/@Photo" height="150" class="img-circle elevation-2" alt="User Image" />
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">@FullName</a>
+            </div>
+        </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                
+
+                <partial name="Menus/_Dashboard.cshtml" />
+
+                <partial name="Menus/_Doctors.cshtml" />
+                <partial name="Menus/_Appointment.cshtml" />
+                <partial name="Menus/_Patient.cshtml" />
+                <partial name="Menus/_MedicalServices.cshtml" />
+                <partial name="Menus/_LabManagement.cshtml" />
+                <partial name="Menus/_PharmacyManagement.cshtml" />
+                <partial name="Menus/_Account&Finance.cshtml" />
+                <partial name="Menus/_Hrm.cshtml" />
+                @* <partial name="Menus/_System.cshtml" /> *@
+                <partial name="Menus/_Settings.cshtml" />
+
+                <li class="nav-item ">
+                    <a asp-controller="Auth" asp-action="SignOut" class="nav-link">
+
+                        <i class=" nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            LogOut
+
+                        </p>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

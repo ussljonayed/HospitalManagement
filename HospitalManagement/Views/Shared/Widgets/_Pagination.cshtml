@@ -1,0 +1,28 @@
+﻿@using HospitalManagement.Models.ViewModels
+
+@{
+    Pagination p = ViewBag.Pagination;
+}
+<ul class="pagination">
+    <li class="paginate_button page-item first"><a tabindex="0"  asp-route-page="1" class="page-link">First</a></li>
+    <li class="paginate_button page-item previous"><a tabindex="0"  asp-route-page="@p.PreviousPage" class="page-link">Previous</a></li>
+   
+    @for (int i = p.CurrentPage - 3; i <= p.CurrentPage + 3; i++)
+    {
+        if (i > 0 && i<=p.LastPage)
+        {
+            if (p.CurrentPage == i)
+            {
+                <li class="paginate_button page-item previous active"><a tabindex="0" asp-route-page="@i" class="page-link">@i</a></li>
+            }
+            else
+            {
+                <li class="paginate_button page-item previous"><a tabindex="0" asp-route-page="@i" class="page-link">@i</a></li>
+            }
+
+        }
+    }
+   
+    <li class="paginate_button page-item next"><a tabindex="0"  asp-route-page="@p.NextPage" class="page-link">Next</a></li>
+    <li class="paginate_button page-item last"><a tabindex="0"  asp-route-page="@p.LastPage" class="page-link">Last</a></li>
+</ul>

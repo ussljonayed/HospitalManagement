@@ -1,0 +1,98 @@
+﻿@using HospitalManagement.Models.EntityModels
+@using HospitalManagement.Models.ViewModels
+@model IEnumerable<Appointment>
+
+
+
+
+@{
+    PageHeader ph = new PageHeader() { Title = "List of Appointment" };
+}
+<partial name="../Shared/Widgets/_PageHeader.cshtml" model="ph" />
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <a asp-controller="Appointment" class="btn btn-success" asp-action="Create">New Appointment</a>
+        </h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        
+
+        <div class="card">
+            
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">ID</th>
+                            <th>Patient Name</th>
+                            <th>Doctor</th>
+                            <th>Appointment Date</th>
+                            <th>Room Number</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (Appointment appointment in Model)
+
+                        {
+                            <tr>
+                                <td>@appointment.Id</td>
+                                <td>@appointment.Patient.Name</td>
+                                <td>@appointment.Doctor.Name </td>                                
+                                <td>@appointment.Date </td>
+                                <td>@appointment.Doctor.RoomNo </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-controller="Appointment" asp-action="Details" asp-route-id="@appointment.Id" class="btn btn-success btn-sm">
+                                            <i class="far fa-file-alt"></i>
+                                        </a>
+                                        <a asp-controller="Appointment" asp-action="Edit" asp-route-id="@appointment.Id" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                        <a asp-controller="Appointment" asp-action="Delete" asp-route-id="@appointment.Id" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+
+                            
+                        }
+
+                        
+                        
+                    </tbody>
+                </table>
+                <partial name="../Shared/Widgets/_Pagination.cshtml" />
+
+
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        Footer
+    </div>
+    <!-- /.card-footer-->
+</div>
+
+

@@ -1,0 +1,154 @@
+﻿@using HospitalManagement.Models.ViewModels
+
+
+@{
+    PageHeader ph = new PageHeader() { Title = "Add Patient" };
+}
+<partial name="../Shared/Widgets/_PageHeader.cshtml" model="ph" />
+
+
+
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <partial name="../Shared/Widgets/_CardHeader.cshtml" />
+        <div class="card-body">
+
+            @* <div class="card"> *@
+
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">Add Patient</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal" asp-controller="Patient" asp-action="Save">
+                        <div class="card-body">
+
+
+                            @* <div class="form-group row">
+
+                                <label for="DoctorId" class="col-sm-2 col-form-label">Doctor</label>
+
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="DoctorId">
+                                        @foreach (var doctor in Model)
+                                        {
+                                            <option value="@doctor.Id">@doctor.Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                            </div> *@
+
+
+
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Name" class="form-control" id="Name" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Dob" class="col-sm-2 col-form-label">Date Of Birth</label>
+                                <div class="col-sm-10">
+                                    <input type="date" name="Dob" class="form-control" id="Dob" placeholder="Date Of Birth">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <label for="Mobile" class="col-sm-2 col-form-label">Mobile</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="Mobile" class="form-control" id="Mobile" placeholder="Mobile">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="Gender" class="col-sm-2 col-form-label">Gender</label>
+                                @* <div class="col-sm-10">
+                                    <input type="text" name="Gender" class="form-control" id="Gender" placeholder="Gender">
+                                </div> *@
+
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="Gender" value="Male" id="Gender">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="Gender" value="Female" id="Gender">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Female
+                                    </label>
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label for="Profession" class="col-sm-2 col-form-label">Profession</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Profession" class="form-control" id="Profession" placeholder="Profession">
+                                </div>
+                            </div>
+                            
+
+
+
+
+                            <div class="form-group row">
+                                <label for="Weight" class="col-sm-2 col-form-label">Weight</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Weight" class="form-control" id="Weight" placeholder="Weight">
+                                </div>
+                            </div>
+
+
+
+
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-info">Sign in</button>
+                            <button type="reset" class="btn btn-default float-right">Clear</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+
+            </div>
+            <!-- /.card-body -->
+            @* </div> *@
+
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            Footer
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>

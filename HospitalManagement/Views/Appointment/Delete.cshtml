@@ -1,0 +1,14 @@
+﻿@using HospitalManagement.Models.EntityModels
+@model Appointment
+
+<div>
+    
+
+    Patient: @Model.PatientId<br />
+    @* Role: @Model.Role.Name<br /> *@
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-route-id="@Model.Id" />
+    <input type="submit" class="btn btn-danger" value="Are you sure?" />
+</form>

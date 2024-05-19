@@ -1,0 +1,81 @@
+﻿@using HospitalManagement.Models.EntityModels
+@model Patient
+@using HospitalManagement.Models.ViewModels
+
+@{
+    PageHeader ph = new PageHeader() { Title = "Edit Patient Details" };
+}
+<partial name="../Shared/Widgets/_PageHeader.cshtml" model="ph" />
+
+
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <partial name="../Shared/Widgets/_CardHeader.cshtml" />
+
+        <div class="card-body">
+
+            <form class="form-horizontal" asp-action="Edit" asp-controller="Patient">
+
+                
+
+                <div class="form-group row">
+                    <label for="Name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Name" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Dob" class="col-sm-2 col-form-label">Date of Birth</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" asp-for="Dob" />
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label for="Mobile" class="col-sm-2 col-form-label">Mobile</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" asp-for="Mobile" value="@Model.Mobile" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Gender" class="col-sm-2 col-form-label">Gender</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Gender" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="Profession" class="col-sm-2 col-form-label">Profession</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Profession" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Weight" class="col-sm-2 col-form-label">Weight </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Weight" />
+                    </div>
+                </div>
+
+
+               
+
+
+                <div class="card-footer">
+                    <input class="btn btn-info" type="submit" value="Submit" name="Submit" />
+                </div>
+            </form>
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>

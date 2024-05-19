@@ -1,0 +1,98 @@
+﻿@using HospitalManagement.Models.EntityModels
+@model Doctor
+@using HospitalManagement.Models.ViewModels
+
+@{
+    PageHeader ph = new PageHeader() { Title = "Edit Doctor Details" };
+}
+<partial name="../Shared/Widgets/_PageHeader.cshtml" model="ph" />
+
+
+<section class="content">
+    <!-- Default box -->
+    <div class="card">
+        <partial name="../Shared/Widgets/_CardHeader.cshtml" />
+
+        <div class="card-body">
+
+            <form class="form-horizontal" asp-action="Edit" asp-controller="Doctor" >
+
+                <div class="form-group row">
+                    <label for="DoctorDepartmentId" class="col-sm-2 col-form-label">DoctorDepartment</label>
+                    <div class="col-sm-10">
+                        <select asp-for="DoctorDepartmentId" class="form-control">
+                            @foreach (var dd in ViewBag.DoctorDepartments)
+                            {
+                                <option value="@dd.Id">@dd.Name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Name" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="Degree" class="col-sm-2 col-form-label">Degree</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Degree"/>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+
+                    <label for="PassingInstitute" class="col-sm-2 col-form-label">PassingInstitute</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="PassingInstitute" value="@Model.PassingInstitute" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="VisitingHour" class="col-sm-2 col-form-label">VisitingHour</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="VisitingHour" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="Fee" class="col-sm-2 col-form-label">Fee</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Fee" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="RoomNo" class="col-sm-2 col-form-label">Room No</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" asp-for="RoomNo" />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+
+                    <label for="ForAppointment" class="col-sm-2 col-form-label">ForAppointment</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" asp-for="ForAppointment" />
+                    </div>
+                </div>
+
+
+
+                <div class="card-footer">
+                    <input class="btn btn-info" type="submit" value="Submit" name="Submit" />
+                </div>
+            </form>
+
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
