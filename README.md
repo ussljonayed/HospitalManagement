@@ -1,6 +1,6 @@
-#Hospital Management System
+# Hospital Management System
 
-##Functionality:
+## Functionality:
 
 1. Can perform CRUD operation on Doctor
 2. Can perform CRUD operation on Patient
